@@ -48,7 +48,7 @@ static void test_pointer_view_timer_callback(void *ctx) {
   if(testpointer_model->ir_received != testpointer_model->ir_received_prev) {
 
     /* Trigger a test pointer view redraw */
-    with_view_model(app->testpointer_view, TestPointerModel* _model,
+    with_view_model(app->testpointer_view, TestPointerModel *_model,
 			{UNUSED(_model);}, true);
 
     testpointer_model->ir_received_prev = testpointer_model->ir_received;
@@ -129,7 +129,7 @@ void testpointer_view_enter_callback(void *ctx) {
   /* Set the backlight on all the time */
   set_backlight(&app->backlight_control, BL_ON);
 
-  with_view_model(app->testpointer_view, TestPointerModel* _model,
+  with_view_model(app->testpointer_view, TestPointerModel *_model,
 			{UNUSED(_model);}, false);
 
 }

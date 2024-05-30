@@ -296,7 +296,7 @@ static int32_t vcp_rx_tx_thread(void *ctx) {
   uint32_t now_ms;
 
   /* Trigger the first passthrough view redraw */
-  with_view_model(app->passthru_view, PassthruModel* _model,
+  with_view_model(app->passthru_view, PassthruModel *_model,
 			{UNUSED(_model);}, true);
   passthru_model->last_display_update_tstamp = furi_get_tick();
   passthru_model->update_display = false;
@@ -322,7 +322,7 @@ static int32_t vcp_rx_tx_thread(void *ctx) {
 				passthru_view_update_every) {
 
       /* Trigger a passthrough view redraw */
-      with_view_model(app->passthru_view, PassthruModel* _model,
+      with_view_model(app->passthru_view, PassthruModel *_model,
 			{UNUSED(_model);}, true);
       passthru_model->last_display_update_tstamp = now_ms;
       passthru_model->update_display = false;
@@ -339,7 +339,7 @@ static int32_t vcp_rx_tx_thread(void *ctx) {
          stopping, so it doesn't show up briefly before being reset when the
          user reenters the view */
       passthru_model->show_serial_traffic = false;
-      with_view_model(app->passthru_view, PassthruModel* _model,
+      with_view_model(app->passthru_view, PassthruModel *_model,
 			{UNUSED(_model);}, true);
 
       break;
