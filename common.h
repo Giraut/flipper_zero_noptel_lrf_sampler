@@ -353,7 +353,7 @@ typedef struct {
   bool vcp_connected;
 
   /* The state of the USB interface before reconfiguring it */
-  FuriHalUsbInterface* usb_interface_state_save;
+  FuriHalUsbInterface *usb_interface_state_save;
 
   /* Virtual COM port configuration */
   struct usb_cdc_line_coding *vcp_config;
@@ -412,7 +412,7 @@ typedef struct {
   uint8_t traffic_log_len;
 
   /* Mutex to access the ring buffer above */
-  FuriMutex* traffic_log_mutex;
+  FuriMutex *traffic_log_mutex;
 
   /* Copy of the ring buffer above */
   uint16_t traffic_log_copy[NB_HEX_VALS_IN_PASSTHRU_SCREEN];

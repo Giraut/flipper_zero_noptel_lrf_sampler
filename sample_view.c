@@ -383,7 +383,7 @@ static void sample_view_timer_callback(void *ctx) {
     }
 
     /* Trigger a sample view redraw */
-    with_view_model(app->sample_view, SampleModel* _model,
+    with_view_model(app->sample_view, SampleModel *_model,
 			{UNUSED(_model);}, true);
 
     sample_model->samples_updated = false;
@@ -403,7 +403,7 @@ void sample_view_enter_callback(void *ctx) {
   App *app = (App *)ctx;
   uint32_t period = furi_ms_to_ticks(sample_view_update_every);
 
-  with_view_model(app->sample_view, SampleModel* sample_model,
+  with_view_model(app->sample_view, SampleModel *sample_model,
 	{
 	  sample_model->config = &(app->config);
 

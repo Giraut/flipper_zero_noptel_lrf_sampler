@@ -26,7 +26,7 @@ static void lrf_ident_handler(LRFIdent *lrf_ident, void *ctx) {
   lrfinfo_model->has_ident = true;
 
   /* Trigger an LRF info view redraw */
-  with_view_model(app->lrfinfo_view, LRFInfoModel* _model,
+  with_view_model(app->lrfinfo_view, LRFInfoModel *_model,
 			{UNUSED(_model);}, true);
 }
 
@@ -45,7 +45,7 @@ static void lrf_info_handler(LRFInfo *lrf_info, void *ctx) {
   lrfinfo_model->has_info = true;
 
   /* Trigger an LRF info view redraw */
-  with_view_model(app->lrfinfo_view, LRFInfoModel* _model,
+  with_view_model(app->lrfinfo_view, LRFInfoModel *_model,
 			{UNUSED(_model);}, true);
 }
 
@@ -56,7 +56,7 @@ void lrfinfo_view_enter_callback(void *ctx) {
 
   App *app = (App *)ctx;
 
-  with_view_model(app->lrfinfo_view, LRFInfoModel* lrfinfo_model,
+  with_view_model(app->lrfinfo_view, LRFInfoModel *lrfinfo_model,
 	{
 	  /* Start the UART at the correct baudrate */
 	  start_uart(app->lrf_serial_comm_app, app->config.baudrate);
@@ -211,7 +211,7 @@ bool lrfinfo_view_input_callback(InputEvent *evt, void *ctx) {
 
     /* Trigger an LRF info view redraw to clear the information currently
        displayed - if any */
-    with_view_model(app->lrfinfo_view, LRFInfoModel* _model,
+    with_view_model(app->lrfinfo_view, LRFInfoModel *_model,
 			{UNUSED(_model);}, true);
 
     /* Send a send-identification-frame command */

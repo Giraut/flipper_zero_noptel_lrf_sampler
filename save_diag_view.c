@@ -52,8 +52,8 @@ static void diag_data_handler(LRFDiag *lrf_diag, void *ctx) {
   App *app = (App *)ctx;
   SaveDiagModel *savediag_model = view_get_model(app->savediag_view);
   DateTime datetime;
-  Storage* storage;
-  File* file;
+  Storage *storage;
+  File *file;
   uint32_t bytes_to_write, bytes_written;
   uint32_t total_bytes_written = 0;
   int32_t val;
@@ -83,7 +83,7 @@ static void diag_data_handler(LRFDiag *lrf_diag, void *ctx) {
 
       /* Trigger a save diagnostic view redraw to bring the progress bar to
          50% before saving */
-      with_view_model(app->savediag_view, SaveDiagModel* _model,
+      with_view_model(app->savediag_view, SaveDiagModel *_model,
 			{UNUSED(_model);}, true);
       last_update_display = furi_get_tick();
 
@@ -197,7 +197,7 @@ static void diag_data_handler(LRFDiag *lrf_diag, void *ctx) {
 
               /* Trigger a save diagnostic view redraw to update the progress
                  bar */
-              with_view_model(app->savediag_view, SaveDiagModel* _model,
+              with_view_model(app->savediag_view, SaveDiagModel *_model,
 				{UNUSED(_model);}, true);
               last_update_display = now_ms;
             }
@@ -282,7 +282,7 @@ static void diag_data_handler(LRFDiag *lrf_diag, void *ctx) {
   }
 
   /* Trigger a save diagnostic view redraw */
-  with_view_model(app->savediag_view, SaveDiagModel* _model,
+  with_view_model(app->savediag_view, SaveDiagModel *_model,
 			{UNUSED(_model);}, true);
 }
 
@@ -293,7 +293,7 @@ void savediag_view_enter_callback(void *ctx) {
 
   App *app = (App *)ctx;
 
-  with_view_model(app->savediag_view, SaveDiagModel* savediag_model,
+  with_view_model(app->savediag_view, SaveDiagModel *savediag_model,
 	{
 	  /* Start the UART at the correct baudrate */
 	  start_uart(app->lrf_serial_comm_app, app->config.baudrate);
@@ -441,7 +441,7 @@ bool savediag_view_input_callback(InputEvent *evt, void *ctx) {
 
       /* Trigger a save diagnostic view redraw to clear the information
          currently displayed - if any */
-      with_view_model(app->savediag_view, SaveDiagModel* _model,
+      with_view_model(app->savediag_view, SaveDiagModel *_model,
 			{UNUSED(_model);}, true);
 
       /* Send a send-identification-frame command */

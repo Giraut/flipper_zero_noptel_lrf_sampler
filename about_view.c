@@ -18,7 +18,7 @@ void about_view_enter_callback(void *ctx) {
 
   App *app = (App *)ctx;
 
-  with_view_model(app->about_view, AboutModel* about_model,
+  with_view_model(app->about_view, AboutModel *about_model,
 	{
 	  /* Start at the first screen */
 	  about_model->screen = 0;
@@ -148,7 +148,7 @@ bool about_view_input_callback(InputEvent *evt, void *ctx) {
     return false;
 
   /* Trigger an about view redraw */
-  with_view_model(app->about_view, AboutModel* _model, {UNUSED(_model);}, true);
+  with_view_model(app->about_view, AboutModel *_model, {UNUSED(_model);}, true);
 
   /* We handled the event */
   return true;

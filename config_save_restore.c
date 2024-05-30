@@ -20,8 +20,8 @@
     Silently fail **/
 void load_configuration(App *app) {
 
-  Storage* storage;
-  File* file;
+  Storage *storage;
+  File *file;
   Config read_config;
   SMMPfxConfig read_smm_pfx_config;
   bool file_read;
@@ -303,12 +303,12 @@ void load_configuration(App *app) {
     Silently fail **/
 void save_configuration(App *app) {
 
-  Storage* storage;
-  File* file;
+  Storage *storage;
+  File *file;
   bool file_written = false;
   uint16_t bytes_written = 0;
 
-  /* Open storage and allocate space for the file*/
+  /* Open storage and allocate space for the file */
   storage = furi_record_open(RECORD_STORAGE);
   file = storage_file_alloc(storage);
 
