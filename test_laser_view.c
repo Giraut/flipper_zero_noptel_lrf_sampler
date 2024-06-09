@@ -29,7 +29,7 @@ static void ir_capture_callback(void *ctx, bool lvl, uint32_t duration) {
 
 
 /** IR capture timeout callback */
-static void ir_timeout_callback(void*ctx) {
+static void ir_timeout_callback(void *ctx) {
 
   TestLaserModel *testlaser_model = (TestLaserModel *)ctx;
 
