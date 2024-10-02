@@ -1,6 +1,6 @@
 /***
  * Noptel LRF rangefinder sampler for the Flipper Zero
- * Version: 1.9
+ * Version: 2.0
  *
  * Main app
 ***/
@@ -40,7 +40,6 @@ static App *noptel_lrf_sampler_app_init() {
   app->view_dispatcher = view_dispatcher_alloc();
 
   /* Configure the view dispatcher */
-  view_dispatcher_enable_queue(app->view_dispatcher);
   view_dispatcher_attach_to_gui(app->view_dispatcher, gui,
 				ViewDispatcherTypeFullscreen);
   view_dispatcher_set_event_callback_context(app->view_dispatcher, app);

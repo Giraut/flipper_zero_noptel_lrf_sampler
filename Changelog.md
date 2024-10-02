@@ -1,3 +1,7 @@
+## Version 2.0 - 02/10/2024
+
+- Removed call to view_dispatcher_enable_queue() which has been deprecated
+
 ## Version 1.9 - 29/05/2024
 
 - Correctly display the bytes at the left-hand side of the serial traffic screen in the passthrough view
