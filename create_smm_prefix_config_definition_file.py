@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Noptel LRF rangefinder sampler for the Flipper Zero
-Version: 2.0
+Version: 2.1
 
 Companion utility to create a special definition file containing the
 optional prefix sequence to send before SMM commands, and the associated

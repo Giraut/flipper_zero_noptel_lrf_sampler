@@ -1,6 +1,6 @@
 /***
  * Noptel LRF rangefinder sampler for the Flipper Zero
- * Version: 2.0
+ * Version: 2.1
  *
  * Main app
 ***/
@@ -19,7 +19,7 @@
 
 
 /*** Defines ***/
-#define VERSION "2.0"
+#define VERSION "2.1"
 #define TAG "noptel_lrf_sampler"
 
 #define CONFIG_FILE "noptel_lrf_sampler.save"

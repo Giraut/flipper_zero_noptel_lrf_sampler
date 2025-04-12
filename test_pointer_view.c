@@ -1,6 +1,6 @@
 /***
  * Noptel LRF rangefinder sampler for the Flipper Zero
- * Version: 2.0
+ * Version: 2.1
  *
  * Test pointer view
 ***/

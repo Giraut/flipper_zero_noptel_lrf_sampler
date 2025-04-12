@@ -1,12 +1,14 @@
 /***
  * Noptel LRF rangefinder sampler for the Flipper Zero
- * Version: 2.0
+ * Version: 2.1
  *
  * USB serial passthrough view
 ***/
 
 /*** Includes ***/
+#if __has_include(<cli/cli.h>)
 #include <cli/cli.h>
+#endif
 #include <cli/cli_vcp.h>
 #include <furi_hal.h>
 #include <furi_hal_usb_cdc.h>
@@ -462,17 +464,27 @@ void passthru_view_enter_callback(void *ctx) {
 
   App *app = (App *)ctx;
   PassthruModel *passthru_model = view_get_model(app->passthru_view);
+#if __has_include(<cli/cli.h>)
   Cli *cli;
+#else
+  CliVcp *cli_vcp;
+#endif
 
   furi_hal_usb_unlock();
 
   /* Get the current state of the USB interface */
   passthru_model->usb_interface_state_save = furi_hal_usb_get_config();
 
-  /* Close the CLI */
+  /* Disable the CLI */
+#if __has_include(<cli/cli.h>)
   cli = furi_record_open(RECORD_CLI);
   cli_session_close(cli);
   furi_record_close(RECORD_CLI);
+#else
+  cli_vcp = furi_record_open(RECORD_CLI_VCP);
+  cli_vcp_disable(cli_vcp);
+  furi_record_close(RECORD_CLI_VCP);
+#endif
 
   /* Wait a bit before fiddling with the USB interface, otherwise we might crash
      for some reason */
@@ -509,10 +521,16 @@ void passthru_view_enter_callback(void *ctx) {
     else
       furi_hal_usb_reinit();
 
-    /* Reopen the CLI */
+    /* Re-enable the CLI */
+#if __has_include(<cli/cli.h>)
     cli = furi_record_open(RECORD_CLI);
     cli_session_open(cli, &cli_vcp);
     furi_record_close(RECORD_CLI);
+#else
+    cli_vcp = furi_record_open(RECORD_CLI_VCP);
+    cli_vcp_enable(cli_vcp);
+    furi_record_close(RECORD_CLI_VCP);
+#endif
   }
 
   /* Get the current virtual COM port configuration */
@@ -595,7 +613,11 @@ void passthru_view_exit_callback(void *ctx) {
 
   App *app = (App *)ctx;
   PassthruModel *passthru_model = view_get_model(app->passthru_view);
+#if __has_include(<cli/cli.h>)
   Cli *cli;
+#else
+  CliVcp *cli_vcp;
+#endif
 
   /* If the second screen is displayed, set the backlight back to automatic */
   if(passthru_model->screen == 1)
@@ -628,10 +650,16 @@ void passthru_view_exit_callback(void *ctx) {
   /* Free the mutex to access the traffic log */
   furi_mutex_free(passthru_model->traffic_log_mutex);
 
-  /* Close the CLI */
+  /* Disable the CLI */
+#if __has_include(<cli/cli.h>)
   cli = furi_record_open(RECORD_CLI);
   cli_session_close(cli);
   furi_record_close(RECORD_CLI);
+#else
+  cli_vcp = furi_record_open(RECORD_CLI_VCP);
+  cli_vcp_disable(cli_vcp);
+  furi_record_close(RECORD_CLI_VCP);
+#endif
 
   /* Wait a bit before fiddling with the USB interface, otherwise we might crash
      for some reason */
@@ -641,10 +669,16 @@ void passthru_view_exit_callback(void *ctx) {
   furi_check(furi_hal_usb_set_config(passthru_model->usb_interface_state_save,
 					NULL) == true);
 
-  /* Restart the CLI */
+  /* Re-enable the CLI */
+#if __has_include(<cli/cli.h>)
   cli = furi_record_open(RECORD_CLI);
   cli_session_open(cli, &cli_vcp);
   furi_record_close(RECORD_CLI);
+#else
+  cli_vcp = furi_record_open(RECORD_CLI_VCP);
+  cli_vcp_enable(cli_vcp);
+  furi_record_close(RECORD_CLI_VCP);
+#endif
 }
 
 
