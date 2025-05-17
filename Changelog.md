@@ -1,3 +1,7 @@
+## Version 2.2 - 17/05/2025
+
+- Re-enabled the use of the 5V pin (pin #1) to optionally control the rangefinder's power supply, in addition to the C1 pin (pin #15)
+
 ## Version 2.1 - 12/04/2025
 
 - Made passthru.c work with cli_vcp_disable() / clip_vcp_enable() when applicable
