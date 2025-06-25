@@ -1,3 +1,7 @@
+## Version 2.3 - 25/06/2025
+
+- Added a function to test the rangefinder's boot time
+
 ## Version 2.2 - 17/05/2025
 
 - Re-enabled the use of the 5V pin (pin #1) to optionally control the rangefinder's power supply, in addition to the C1 pin (pin #15)
