@@ -545,7 +545,10 @@ int32_t noptel_lrf_sampler_app_entry(void *p) {
 
   /* Turn on the LRF */
   FURI_LOG_I(TAG, "LRF power on");
-  power_lrf(true);
+  power_lrf(true, NULL);
+
+  /* Wait a bit to let the LRF boot up and be ready to accept commands */
+  furi_delay_ms(300);
 
   /* Initialize the app */
   App *app = noptel_lrf_sampler_app_init();
@@ -559,7 +562,7 @@ int32_t noptel_lrf_sampler_app_entry(void *p) {
 
   /* Turn off the LRF */
   FURI_LOG_I(TAG, "LRF power off");
-  power_lrf(false);
+  power_lrf(false, NULL);
 
   return 0;
 }

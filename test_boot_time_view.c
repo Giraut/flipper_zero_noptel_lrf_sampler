@@ -45,7 +45,7 @@ static void lrf_boot_info_handler(LRFBootInfo *lrf_boot_info, void *ctx) {
     /* Calculate the boot time */
     testboottime_model->boot_time_ms = ms_tick_time_diff_ms(
 			testboottime_model->boot_info.boot_string_rx_tstamp,
-			testboottime_model->power_on_tstamp) - boot_time_correction;
+			testboottime_model->power_on_tstamp);
 
     /* We're not waiting for a boot string anymore */
     testboottime_model->await_boot_info = false;
@@ -86,20 +86,17 @@ void testboottime_view_enter_callback(void *ctx) {
 
           /* Turn off the LRF */
           FURI_LOG_I(TAG, "LRF power off");
-          power_lrf(false);
+          power_lrf(false, NULL);
 
           /* Wait one second */
           furi_delay_ms(1000);
 
-          /* Mark the power-on timestamp */
-          testboottime_model->power_on_tstamp = furi_get_tick();
-
           /* Now we wait for a boot string */
           testboottime_model->await_boot_info = true;
 
-          /* Turn the LRF back on */
+          /* Turn the LRF back on and mark the power-on timestamp */
           FURI_LOG_I(TAG, "LRF power on");
-          power_lrf(true);
+          power_lrf(true, &testboottime_model->power_on_tstamp);
 	},
 	false);
 }
@@ -212,20 +209,17 @@ bool testboottime_view_input_callback(InputEvent *evt, void *ctx) {
 
     /* Turn off the LRF */
     FURI_LOG_I(TAG, "LRF power off");
-    power_lrf(false);
+    power_lrf(false, NULL);
 
     /* Wait one second */
     furi_delay_ms(1000);
 
-    /* Mark the power-on timestamp */
-    testboottime_model->power_on_tstamp = furi_get_tick();
-
     /* Now we wait for a boot string */
     testboottime_model->await_boot_info = true;
 
-    /* Turn the LRF back on */
+    /* Turn the LRF back on and mark the power-on timestamp */
     FURI_LOG_I(TAG, "LRF power on");
-    power_lrf(true);
+    power_lrf(true, &testboottime_model->power_on_tstamp);
 
     return true;
   }

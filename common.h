@@ -110,9 +110,6 @@ extern const uint16_t passthru_vcp_channel;
 /** USB serial passthrough view timings **/
 extern const uint16_t passthru_view_update_every;
 
-/** Boot time correction, to account for the lag due to the Flipper itself **/
-extern const uint32_t boot_time_correction;
-
 
 
 /*** Types */
