@@ -25,6 +25,7 @@ const char *submenu_item_names[] = {"Configuration",
 					"Sample",
 					"Pointer ON/OFF",
 					"LRF information",
+					"Test boot time",
 					"Save LRF diagnostic",
 					"Test LRX laser",
 					"Test IR pointer",
@@ -100,3 +101,6 @@ const uint16_t test_pointer_jiggle_every = 60; /*ms*/
 
 /** USB serial passthrough view timings **/
 const uint16_t passthru_view_update_every = 250; /*ms*/
+
+/** Boot time correction, to account for the lag due to the Flipper itself **/
+const uint32_t boot_time_correction = 32; /*ms*/

@@ -20,6 +20,9 @@ typedef enum {
   /* LRF info view */
   view_lrfinfo,
 
+  /* Test boot time view */
+  view_testboottime,
+
   /* Save diagnostic view */
   view_savediag,
 

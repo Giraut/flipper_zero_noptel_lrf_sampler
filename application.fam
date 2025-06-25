@@ -24,6 +24,7 @@ App(
         "config_view.c",
         "led_control.c",
         "lrf_info_view.c",
+        "test_boot_time_view.c",
         "lrf_power_control.c",
         "lrf_serial_comm.c",
         "main.c",

@@ -137,6 +137,14 @@ Select the **LRF information** option to view the LRF's identification informati
 
 ![GPIO pin connections](screenshots/2-lrf_information.png)
 
+### Test boot time
+
+Select the **Test boot time** option to test the LRF's boot time, defined as the amount of time between power-up and the device sending out the bootup information string, indicating that it's ready to receive commands. Press the **OK** button to re-test the boot time.
+
+![GPIO pin connections](screenshots/18-boot_time_testing.png)
+
+*Note: the boot time testing function requires the LRF's power supply to be controlled by either pin #1 (+5V) or pin #15 (C1).
+
 ### Save LRF diagnostic
 
 Select the **Save LRF diagnostic** option to save the LRF's diagnostic data after a failed ot incorrect measurement. Press the **OK** button to save another set of diagnostic data or another LRF's.
@@ -329,7 +337,7 @@ Install this app from https://lab.flipper.net/apps/noptel_lrf_sampler
 
 ## Notes
 
-- Pin #15 (C1) may be used to control the LRF's power supply through a power MOSFET or a relay for example. If used, the app will turn on the rangefinder upon starting and turn it back off when exiting. This is useful if the LRF is battery-powered to keep the rangefinder connected to the Flipper Zero and conserve the battery when not in use. The use of this pin is entirely optional.
+- Pin #1 (+5V) or pin #15 (C1) may be used to control the LRF's power supply through a power MOSFET or a relay for example. If used, the app will turn on the rangefinder upon starting and turn it back off when exiting. This is useful if the LRF is battery-powered to keep the rangefinder connected to the Flipper Zero and conserve the battery when not in use. The use of this pin is entirely optional. It is however required to perform a boot time test.
 
 - LRX-series rangefinders may also be used with the app. However, they are usually configured as RS232 or RS422 serial devices, not as UART serial devices. Therefore, a UART-to-RS232 or UART-to-RS422 converter is usually required to connect the Flipper Zero's UART lines to an LRX rangefinder.
 
