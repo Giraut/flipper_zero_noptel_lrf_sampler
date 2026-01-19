@@ -27,7 +27,7 @@ const char *submenu_item_names[] = {"Configuration",
 					"LRF information",
 					"Test boot time",
 					"Save LRF diagnostic",
-					"Test LRX laser",
+					"Test 905nm LRF laser",
 					"Test IR pointer",
 					"USB serial passthrough",
 					"About"};
