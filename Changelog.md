@@ -1,3 +1,7 @@
+## Version 2.4 - 19/01/2026
+
+- Renamed the "Test LRX laser" function "Test 905nm LRF laser", as newer LRX lasers aren't detectable in the near-infrared anymore
+
 ## Version 2.3 - 25/06/2025
 
 - Added a function to test the rangefinder's boot time
